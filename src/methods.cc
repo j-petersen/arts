@@ -73,7 +73,7 @@ MdRecord create_mdrecord(
   const std::array<String, NUM_OF_GIN_DEFAULTS>& gindefault,
   const std::array<String, NUM_OF_GIN_DESCRIPTIONS>& gindesc,
   Ts ... flags)
-{ 
+{
   static_assert(LEN_OF_NAME > 1, "Must have a name");
   static_assert(LEN_OF_DESCRIPTION > 1, "Must have a description");
   static_assert(NUM_OF_AUTHORS not_eq 0, "Must have at least one author");
@@ -82,7 +82,7 @@ MdRecord create_mdrecord(
   static_assert(NUM_OF_GIN_ARGS == NUM_OF_GIN_TYPES, "GIN type(s) count does not match number of GIN");
   static_assert(NUM_OF_GIN_ARGS == NUM_OF_GIN_DEFAULTS, "GIN default(s) count does not match number of GIN");
   static_assert(NUM_OF_GIN_ARGS == NUM_OF_GIN_DESCRIPTIONS, "GIN description(s) count does not match number of GIN");
-  
+
   return MdRecord(name,
                   description,
                   ArrayOfString(authors),
@@ -158,11 +158,11 @@ MdRecord create_mdrecord(
         GIN_DEFAULT( NODEF ),
         GIN_DESC(    "Description for Generic Input Variable 1" )
         ));
- 
+
  For variable descriptions longer than one line, use the following format.
  Don't forget to remove the space in '/ *' and '* /' if you copy this template.
  I had to put it in there because C++ doesn't allow nested comments.
- 
+
   md_data_raw.push_back
     ( create_mdrecord
       ( NAME( "MethodName" ),
@@ -586,7 +586,7 @@ void define_md_data_raw() {
       GIN_TYPE("ArrayOfAbsorptionLines"),
       GIN_DEFAULT(NODEF),
       GIN_DESC("Line-array that removes lines from *abs_lines*.")));
-  
+
   md_data_raw.push_back(create_mdrecord(
     NAME("abs_linesDeleteBadF0"),
       DESCRIPTION(
@@ -812,7 +812,7 @@ void define_md_data_raw() {
                GIN_DEFAULT(NODEF, NODEF),
                GIN_DESC("Method of line normalizations",
                         "ID of one or more bands")));
-  
+
   md_data_raw.push_back(
     create_mdrecord(NAME("abs_lines_per_speciesSetNormalizationForSpecies"),
              DESCRIPTION("See *abs_linesSetNormalization* but for single species\n"),
@@ -900,7 +900,7 @@ void define_md_data_raw() {
                GIN_DEFAULT(NODEF, NODEF),
                GIN_DESC("Method of line mirroring",
                         "ID of one or more bands")));
-  
+
   md_data_raw.push_back(
     create_mdrecord(NAME("abs_lines_per_speciesSetMirroringForSpecies"),
              DESCRIPTION("See *abs_linesSetMirroring* but for single species\n"),
@@ -1070,7 +1070,7 @@ void define_md_data_raw() {
                GIN_DEFAULT(NODEF, NODEF),
                GIN_DESC("Method of line shape calculations",
                         "ID of one or more bands")));
-  
+
   md_data_raw.push_back(
     create_mdrecord(NAME("abs_lines_per_speciesSetLineShapeTypeForSpecies"),
              DESCRIPTION("See *abs_linesSetLineShapeType* but for single species\n"),
@@ -1320,7 +1320,7 @@ void define_md_data_raw() {
                GIN_DEFAULT(NODEF, NODEF),
                GIN_DESC("Value of T0",
                         "ID of one or more bands")));
-  
+
   md_data_raw.push_back(
     create_mdrecord(NAME("abs_lines_per_speciesSetT0ForSpecies"),
              DESCRIPTION("See *abs_linesSetT0* but for single species\n"),
@@ -2100,7 +2100,7 @@ void define_md_data_raw() {
       GIN_TYPE(),
       GIN_DEFAULT(),
       GIN_DESC()));
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("abs_nlteFromRaw"),
       DESCRIPTION("Sets NLTE values manually\n"
@@ -6032,7 +6032,7 @@ void define_md_data_raw() {
       GIN_TYPE("String"),
       GIN_DEFAULT("linear"),
       GIN_DESC("Interpolation method (\"linear\" or \"polynomial\").")));
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("Duration"),
       DESCRIPTION("Sets the seconds between two times.\n"),
@@ -7414,14 +7414,14 @@ void define_md_data_raw() {
         GOUT_TYPE(),
         GOUT_DESC(),
         IN( "diy_dx", "stokes_dim", "f_grid", "atmosphere_dim",
-            "p_grid", "z_field", "t_field", "vmr_field", "abs_species", 
+            "p_grid", "z_field", "t_field", "vmr_field", "abs_species",
             "wind_u_field", "wind_v_field", "wind_w_field", "mag_u_field",
             "mag_v_field", "mag_w_field", "cloudbox_on", "cloudbox_limits",
             "pnd_field", "scat_data",
-            "particle_masses", "iy_unit", "iy_aux_vars", "jacobian_do", 
-            "ppath_agenda", 
-            "propmat_clearsky_agenda", "iy_main_agenda", "iy_space_agenda", 
-            "iy_surface_agenda", "iy_agenda_call1", "iy_transmittance", 
+            "particle_masses", "iy_unit", "iy_aux_vars", "jacobian_do",
+            "ppath_agenda",
+            "propmat_clearsky_agenda", "iy_main_agenda", "iy_space_agenda",
+            "iy_surface_agenda", "iy_agenda_call1", "iy_transmittance",
             "rte_pos", "rte_los", "rte_pos2", "rte_alonglos_v",
             "ppath_lmax", "ppath_lraytrace",
             "fos_scatint_angles", "fos_iyin_za_angles"
@@ -7765,7 +7765,7 @@ void define_md_data_raw() {
          "Radiative transfer for (active) radio links.\n"
          "\n"
          "The method assumes that *ppath_agenda* is set up to return the\n"
-         "propagation path between the transmitter and the receiver. The\n" 
+         "propagation path between the transmitter and the receiver. The\n"
          "position of the transmitter is given as *rte_pos*, and the\n"
          "\"sensor\" is taken as the receiver.\n"
          "\n"
@@ -7858,13 +7858,13 @@ void define_md_data_raw() {
             "p_grid", "lat_grid", "lon_grid",
             "z_field", "t_field", "vmr_field", "abs_species",
             "wind_u_field", "wind_v_field", "wind_w_field", "mag_u_field",
-            "mag_v_field", "mag_w_field", 
-            "refellipsoid", "z_surface", "cloudbox_on", "cloudbox_limits", 
-            "pnd_field", "scat_data", 
-            "particle_masses", "iy_aux_vars", "jacobian_do", 
+            "mag_v_field", "mag_w_field",
+            "refellipsoid", "z_surface", "cloudbox_on", "cloudbox_limits",
+            "pnd_field", "scat_data",
+            "particle_masses", "iy_aux_vars", "jacobian_do",
             "ppath_agenda", "ppath_step_agenda",
             "propmat_clearsky_agenda", "iy_transmitter_agenda",
-            "iy_agenda_call1", "iy_transmittance", "rte_pos", "rte_los", 
+            "iy_agenda_call1", "iy_transmittance", "rte_pos", "rte_los",
             "rte_pos2", "rte_alonglos_v", "ppath_lmax", "ppath_lraytrace" ),
         GIN(      "defocus_method", "defocus_shift" ),
         GIN_TYPE( "Index", "Numeric" ),
@@ -7873,7 +7873,7 @@ void define_md_data_raw() {
                   "Angular shift to apply in defocusing estimates." )
         ));
   */
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("iyRadarSingleScat"),
       DESCRIPTION(
@@ -9512,7 +9512,7 @@ void define_md_data_raw() {
       GIN_TYPE(),
       GIN_DEFAULT(),
       GIN_DESC()));
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("LocalTimeOffset"),
       DESCRIPTION("Sets the seconds between localtime and gmtime representation of now().\n"),
@@ -10005,7 +10005,7 @@ void define_md_data_raw() {
           "GIN *spacing*. All points inside a radius from (0,0) are included in\n"
           "*mblock_dlos_grid*. The positions in *mblock_dlos_grid* thus covers\n"
           "a roughly circular domain, and cover the same solid beam angle.\n"
-          "The radius is adjusted according to *spacing' and *centre*, but is\n" 
+          "The radius is adjusted according to *spacing' and *centre*, but is\n"
           "ensured to be >= *width*.\n"
           "\n"
           "Note that the method assumes that width is small and the solid beam\n"
@@ -10791,7 +10791,7 @@ void define_md_data_raw() {
       GIN_TYPE(),
       GIN_DEFAULT(),
       GIN_DESC()));
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("timeNow"),
       DESCRIPTION("Sets time to system_clock::now().\n"),
@@ -10805,7 +10805,7 @@ void define_md_data_raw() {
       GIN_TYPE(),
       GIN_DEFAULT(),
       GIN_DESC()));
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("timeOffset"),
       DESCRIPTION("Offsets time for some seconds\n"),
@@ -10819,7 +10819,7 @@ void define_md_data_raw() {
       GIN_TYPE("Numeric"),
       GIN_DEFAULT(NODEF),
       GIN_DESC("Time in seconds")));
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("OEM"),
       DESCRIPTION(
@@ -15843,8 +15843,8 @@ void define_md_data_raw() {
       GIN_TYPE(),
       GIN_DEFAULT(),
       GIN_DESC()));
-  
-  
+
+
   md_data_raw.push_back(create_mdrecord(
       NAME("rtp_nlteFromRaw"),
       DESCRIPTION("Sets NLTE values manually\n"
@@ -16293,13 +16293,13 @@ void define_md_data_raw() {
       GOUT_TYPE(),
       GOUT_DESC(),
       IN( "scat_meta", "complex_refr_index" ),
-      GIN( "description", "material", "shape", "ptype", "density", 
+      GIN( "description", "material", "shape", "ptype", "density",
            "aspect_ratio_grid", "diameter_max_grid", "scat_f_grid", "scat_T_grid" ),
       GIN_TYPE( "String", "String", "String", "String", "Numeric", "Vector",
            "Vector", "Vector", "Vector" ),
       GIN_DEFAULT( "", "undefined", NODEF, NODEF, "-999", NODEF, NODEF,
                    NODEF, NODEF ),
-      GIN_DESC( "Particle description", "Water or Ice", "spheroidal or cylinder", 
+      GIN_DESC( "Particle description", "Water or Ice", "spheroidal or cylinder",
                 "Particle Type: "totally_random" (20) or "azimuthally_random" (30)",
                 "Particle mass density",
                 "Particle aspect ratio vector",
@@ -17452,7 +17452,7 @@ void define_md_data_raw() {
                GIN_TYPE("Index"),
                GIN_DEFAULT(NODEF),
                GIN_DESC("Number of threads.")));
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("Sleep"),
       DESCRIPTION("Sleeps for a number of seconds\n"),
@@ -17466,7 +17466,7 @@ void define_md_data_raw() {
       GIN_TYPE("Numeric"),
       GIN_DEFAULT(NODEF),
       GIN_DESC("Time to sleep for in seconds")));
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("timeSleep"),
       DESCRIPTION("Sleeps until time has been reached.\n"),
@@ -17674,7 +17674,7 @@ void define_md_data_raw() {
       GIN_TYPE("Index"),
       GIN_DEFAULT("0"),
       GIN_DESC("Flag to select parallelization over zenith angles.\n")));
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("specular_losCalc"),
       DESCRIPTION(
@@ -17728,6 +17728,61 @@ void define_md_data_raw() {
       GOUT_TYPE(),
       GOUT_DESC(),
       IN("rtp_pos", "rtp_los", "atmosphere_dim"),
+      GIN(),
+      GIN_TYPE(),
+      GIN_DEFAULT(),
+      GIN_DESC()));
+
+  md_data_raw.push_back(create_mdrecord(
+      NAME("starBlackbodySimple"),
+      DESCRIPTION("to be done\n"),
+      AUTHORS("Jon Petersen"),
+      OUT("star_spectrum",
+          "star_pos",
+          "star_do"),
+      GOUT(),
+      GOUT_TYPE(),
+      GOUT_DESC(),
+      IN("star_spectrum",
+         "star_pos",
+         "f_grid",
+         "stokes_dim"),
+      GIN("star_radius",
+          "star_distance",
+          "star_temperature",
+          "star_latitude",
+          "star_longitude"),
+      GIN_TYPE("Numeric",
+               "Numeric",
+               "Numeric",
+               "Numeric",
+               "Numeric"),
+      GIN_DEFAULT("6.963242e8",
+                  "1.495978707e11",
+                  "5772",
+                  "0",
+                  "0"),
+      GIN_DESC("The radius of the star in meter.\n"
+               "Default is the radius of our sun.\n",
+               "The average distance between the star and the planet in meter.\n"
+               "Default value is set to 1 a.u.\n",
+               "The effective temperature of the stars photosphere in Kelvin.\n"
+               "Default is the temperature of our sun - 5772 Kelvin\n",
+               "The latitude or the azimuthal position of the star in the sky.\n",
+               "The longitude or zenith position of the star in the sky.\n")));
+
+  md_data_raw.push_back(create_mdrecord(
+      NAME("starOff"),
+      DESCRIPTION(
+          "tbd \n"),
+      AUTHORS("Jon Petersen"),
+      OUT("star_do",
+          "star_spectrum",
+          "star_pos"),
+      GOUT(),
+      GOUT_TYPE(),
+      GOUT_DESC(),
+      IN(),
       GIN(),
       GIN_TYPE(),
       GIN_DEFAULT(),
@@ -18341,7 +18396,7 @@ void define_md_data_raw() {
       DESCRIPTION(
           "Switch between the elements of *surface_rtprop_agenda_array*.\n"
           "\n"
-          "This method requires that *surface_types* have length 1, in\n"          
+          "This method requires that *surface_types* have length 1, in\n"
           "contrast to *iySurfaceCallAgendaX*\n"
           "\n"
           "This method obtains the surface properties as defined by the\n"
@@ -19144,7 +19199,7 @@ void define_md_data_raw() {
       GIN_TYPE(),
       GIN_DEFAULT(),
       GIN_DESC()));
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("time_gridOffset"),
       DESCRIPTION("Offsets a time grid by some seconds.\n"),
@@ -19196,7 +19251,7 @@ void define_md_data_raw() {
                GIN_TYPE(),
                GIN_DEFAULT(),
                GIN_DESC()));
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("time_stampsSort"),
       DESCRIPTION("Sort *in* by *time_stamps* into *out*.\n"),
@@ -20651,7 +20706,7 @@ void define_md_data_raw() {
                "that case, a warning message is written to screen and file\n"
                "(out1 output stream), and the *y* Vector entry for the\n"
                "failed job in *ybatch* is left empty.")));
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("yColdAtmHot"),
       DESCRIPTION(
@@ -20677,7 +20732,7 @@ void define_md_data_raw() {
                "Cold load temperature",
                "Hot load temperature",
                "Flag for calibration scheme, false means system temperature is computed")));
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("ybatchMetProfiles"),
       DESCRIPTION(
@@ -20763,7 +20818,7 @@ void define_md_data_raw() {
       GIN_DEFAULT(NODEF, NODEF),
       GIN_DESC("FIXME DOC", "FIXME DOC")));
 
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("ybatchTimeAveraging"),
       DESCRIPTION(
@@ -20818,7 +20873,7 @@ void define_md_data_raw() {
       GIN_TYPE(),
       GIN_DEFAULT(),
       GIN_DESC()));
-  
+
   md_data_raw.push_back(create_mdrecord(
       NAME("yCalc"),
       DESCRIPTION(
