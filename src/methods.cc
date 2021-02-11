@@ -6573,6 +6573,22 @@ void define_md_data_raw() {
                "Merge frequencies that are closer than this value in Hz.")));
 
   md_data_raw.push_back(create_mdrecord(
+      NAME("gas_scatteringOff"),
+      DESCRIPTION(
+          "Deactivates the gas_scattering within radiative transfer calculations.\n"),
+      AUTHORS("Manfred Brath"),
+      OUT("gas_scattering_do",
+          "gas_scattering_agenda"),
+      GOUT(),
+      GOUT_TYPE(),
+      GOUT_DESC(),
+      IN(),
+      GIN(),
+      GIN_TYPE(),
+      GIN_DEFAULT(),
+      GIN_DESC()));
+
+  md_data_raw.push_back(create_mdrecord(
       NAME("g0Earth"),
       DESCRIPTION(
           "Gravity at zero altitude on Earth.\n"
@@ -8183,7 +8199,7 @@ void define_md_data_raw() {
           "is incorporated (that is, no need to define *iy_cloudbox_agenda*).\n"
           "\n"
           "The transmitter is assumed to be placed at the end of provided *ppath*.\n"
-          "The transmitted signal is taken from *iy_transmitter_agenda*. This\n"
+          "The transmitted signal is taken from *iy_transmitter*. This\n"
           "signal is propagated along the path, considering attenuation alone.\n"
           "That is, the result of the method (*iy*) is the output of\n"
           "*iy_transmitter_agenda* multiplied with the transmittance along the\n"
@@ -8243,6 +8259,7 @@ void define_md_data_raw() {
          "mag_w_field",
          "cloudbox_on",
          "cloudbox_limits",
+         "gas_scattering_do",
          "pnd_field",
          "dpnd_field_dx",
          "scat_species",
@@ -8251,9 +8268,10 @@ void define_md_data_raw() {
          "jacobian_do",
          "jacobian_quantities",
          "ppath",
+         "iy_transmitter",
          "propmat_clearsky_agenda",
          "water_p_eq_agenda",
-         "iy_transmitter_agenda",
+         "gas_scattering_agenda",
          "iy_agenda_call1",
          "iy_transmittance",
          "rte_alonglos_v"),
@@ -8267,13 +8285,15 @@ void define_md_data_raw() {
       DESCRIPTION(
           "Transmitted signal having multiple polarisations.\n"
           "\n"
-          "The method is intended to be part of *iy_transmitter_agenda*. It\n"
-          "sets *iy* to describe the transmitted signal/pulses. The polarisation\n"
-          "state is taken from *instrument_pol*, where *instrument_pol* must\n"
-          "contain an element for each frequency in *f_grid*. The transmitted\n"
-          "signal/pulses are set to be of unit magnitude, such as [1,1,0,0].\n"),
+          "The method is intended to be used as possible input of "
+          "*iyTransmissionStandard.\n"
+          "It sets *iy_transmitter* to describe the transmitted signal/pulses.\n "
+          "The polarisation state is taken from *instrument_pol*, where\n"
+          "*instrument_pol* must contain an element for each frequency in *f_grid*.\n"
+          "The transmitted signal/pulses are set to be of unit magnitude, such\n"
+          "as [1,1,0,0].\n"),
       AUTHORS("Patrick Eriksson"),
-      OUT("iy"),
+      OUT("iy_transmitter"),
       GOUT(),
       GOUT_TYPE(),
       GOUT_DESC(),
@@ -8288,14 +8308,16 @@ void define_md_data_raw() {
       DESCRIPTION(
           "Transmitted signal having a single polarisations.\n"
           "\n"
-          "The method is intended to be part of *iy_transmitter_agenda*. It\n"
-          "sets *iy* to describe the transmitted pulses/signal. The polarisation\n"
-          "state is taken from *instrument_pol*, where *instrument_pol* must contain\n"
-          "a single value. This polarisation state is applied for all\n"
-          "frequencies. The transmitted pulses/signals are set to be of unit\n"
+          "The method is intended to be used as possible input of "
+          "*iyTransmissionStandard.\n"
+          "It sets *iy_transmitter* to describe the transmitted signal/pulses.\n "
+          "The polarisation state is taken from *instrument_pol*, where\n"
+          "*instrument_pol* must contain a single value.\n"
+          "This polarisation state is applied for all frequencies.\n"
+          "The transmitted pulses/signals are set to be of unit\n"
           "magnitude, such as [1,1,0,0].\n"),
       AUTHORS("Patrick Eriksson"),
-      OUT("iy"),
+      OUT("iy_transmitter"),
       GOUT(),
       GOUT_TYPE(),
       GOUT_DESC(),
